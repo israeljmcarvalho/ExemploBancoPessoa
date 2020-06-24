@@ -1,4 +1,4 @@
-package exemplo;
+package exemplo.modelo;
 
 public class Pessoa {
 	private int id;

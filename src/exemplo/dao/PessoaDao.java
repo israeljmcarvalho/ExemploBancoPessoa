@@ -1,7 +1,6 @@
-package exemplo;
+package exemplo.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,24 +8,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseAccess {
-	private final String connectionUrl = "jdbc:sqlserver://localhost;databaseName=ExemploBanco;user=exemplobanco;password=catolica123";
-	private Connection conn = null;
-	
-	private Connection getConnection() {
-		try {
-			if (conn == null || conn.isClosed()) {
-				conn = DriverManager.getConnection(connectionUrl);
-			}
-		} catch (SQLException ex) {
-			throw new RuntimeException("Erro conectando ao banco de dados", ex);
-		}
-		
-		return conn;
-	}
-	
+import exemplo.modelo.Pessoa;
+
+public class PessoaDao {
 	public List<Pessoa> getAllPessoas() {
-		Connection conn = getConnection();
+		Connection conn = DatabaseAccess.getConnection();
 		Statement stmt = null;
 		ResultSet rs = null;
 		
@@ -54,7 +40,7 @@ public class DatabaseAccess {
 	}
 	
 	public Pessoa getPessoaById(int id) {
-		Connection conn = getConnection();
+		Connection conn = DatabaseAccess.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		
@@ -81,7 +67,7 @@ public class DatabaseAccess {
 	}
 	
 	public void inserePessoa(Pessoa pessoa) {
-		Connection conn = getConnection();
+		Connection conn = DatabaseAccess.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 				
@@ -108,7 +94,7 @@ public class DatabaseAccess {
 	}
 	
 	public void deletePessoa(int id) {
-		Connection conn = getConnection();
+		Connection conn = DatabaseAccess.getConnection();
 		PreparedStatement stmt = null;
 			
 		try {
@@ -125,7 +111,7 @@ public class DatabaseAccess {
 	}
 	
 	public void updatePessoa(Pessoa pessoa) {
-		Connection conn = getConnection();
+		Connection conn = DatabaseAccess.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 				
