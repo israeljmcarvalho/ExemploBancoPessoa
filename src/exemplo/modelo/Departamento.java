@@ -9,8 +9,7 @@ public class Departamento {
 	
 	public Departamento() { }
 	
-	public Departamento(int id, String nome, List<Pessoa> funcionarios) {
-		super();
+	public Departamento(int id, String nome, List<Pessoa> funcionarios) {		
 		this.id = id;
 		this.nome = nome;
 		this.funcionarios = funcionarios;
@@ -39,5 +38,11 @@ public class Departamento {
 	public void setFuncionarios(List<Pessoa> funcionarios) {
 		this.funcionarios = funcionarios;
 	}
+
+	@Override
+	public String toString() {
+		return "Departamento [id=" + id + ", nome=" + nome + "]";
+	}
+	
 	
 }
