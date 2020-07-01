@@ -39,7 +39,7 @@ public class MenuPrincipalTexto {
 		
 		do {
 			// Mostra o menu principal ou o menu secundário
-			System.out.println("Administração de RH");
+			System.out.println("Administração de RH"); // Título
 			System.out.println();
 			
 			switch(estadoAtual) {
