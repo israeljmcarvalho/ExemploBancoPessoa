@@ -10,8 +10,8 @@ import java.util.List;
 
 import exemplo.modelo.Pessoa;
 
-public class PessoaDao {
-	public List<Pessoa> getAllPessoas() {
+public class PessoaDao implements IDao<Pessoa> {
+	public List<Pessoa> getAll() {
 		Connection conn = DatabaseAccess.getConnection();
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -39,7 +39,7 @@ public class PessoaDao {
 		return pessoas;		
 	}
 	
-	public Pessoa getPessoaById(int id) {
+	public Pessoa getById(int id) {
 		Connection conn = DatabaseAccess.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -66,7 +66,7 @@ public class PessoaDao {
 		return pessoa;		
 	}
 	
-	public void inserePessoa(Pessoa pessoa) {
+	public void insert(Pessoa pessoa) {
 		Connection conn = DatabaseAccess.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -93,7 +93,7 @@ public class PessoaDao {
 				
 	}
 	
-	public void deletePessoa(int id) {
+	public void delete(int id) {
 		Connection conn = DatabaseAccess.getConnection();
 		PreparedStatement stmt = null;
 			
@@ -110,7 +110,7 @@ public class PessoaDao {
 		}
 	}
 	
-	public void updatePessoa(Pessoa pessoa) {
+	public void update(Pessoa pessoa) {
 		Connection conn = DatabaseAccess.getConnection();
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
